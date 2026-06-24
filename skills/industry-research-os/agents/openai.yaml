@@ -1,0 +1,8 @@
+interface:
+  display_name: "Industry Research OS"
+  short_description: "Structured industry analysis workflow"
+  default_prompt: "Use $industry-research-os to build an industry research database for a new market."
+
+policy:
+  allow_implicit_invocation: true
+
