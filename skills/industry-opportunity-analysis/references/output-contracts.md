@@ -18,6 +18,7 @@ Use this file when creating a structured workspace or Obsidian-ready deliverable
 ├── 08-scorecard.md
 ├── 09-validation-plan.md
 ├── 10-monitoring/
+├── 11-key-points.md
 └── sources.md
 ```
 
@@ -37,7 +38,31 @@ Create at least:
 - `08-scorecard.md`: ranked table with scores and confidence.
 - `09-validation-plan.md`: 7/14/30-day validation roadmap.
 - `10-monitoring/weekly-template.md`: recurring intelligence template.
+- `11-key-points.md`: distilled takeaways for the confirmed user context; must include industry status, key pain points, opportunity directions, and recommended next action.
 - `sources.md`: links, source grade, claim supported.
+
+## Scope Confirmation Format
+
+Save the confirmed context in `00-scope.md`:
+
+```markdown
+# Scope
+
+## User Confirmation
+- Industry:
+- Region:
+- User work nature / role:
+- Interest direction:
+- Desired result:
+- Time horizon:
+- Output folder:
+
+## Assumptions
+- ...
+
+## Open Questions
+- ...
+```
 
 ## Executive Summary Format
 
@@ -127,4 +152,24 @@ Create at least:
 ## Opportunity Score Changes
 
 ## Actions for Next Week
+```
+
+## Key Points Format
+
+Create `11-key-points.md` and mirror the same points in the final chat response:
+
+```markdown
+# Key Points: <industry>
+
+## 行业现状
+- ...
+
+## 关键痛点
+- ...
+
+## 机会方向
+- ...
+
+## 建议下一步
+- ...
 ```

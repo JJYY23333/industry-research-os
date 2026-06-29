@@ -31,7 +31,7 @@ Use $industry-research-os to analyze the internet grocery industry in China and 
 
 `industry-opportunity-analysis` 用于行业机会分析和验证优先级排序。
 
-它会把一个目标行业拆成机会管道：先梳理行业地图、用户痛点、竞品缺口、产品和内容需求，再用评分模型筛出最值得验证的机会，并输出 7/14/30 天验证计划。
+它会把一个目标行业拆成机会管道：先确认你的行业、工作性质、兴趣方向和想要的结果，再梳理行业地图、用户痛点、竞品缺口、产品和内容需求，用评分模型筛出最值得验证的机会，并输出 7/14/30 天验证计划。
 
 适合场景：
 
@@ -42,6 +42,8 @@ Use $industry-research-os to analyze the internet grocery industry in China and 
 - 判断一个行业是否值得进入
 - 对多个机会做评分和优先级排序
 - 输出机会卡片、验证实验和行动路线图
+- 从咨询公司、创业者、投资人、产品经理、销售或运营等不同视角切换分析口径
+- 每次分析都新建文件夹保存结果，并在结尾提炼行业现状、痛点和机会
 
 使用示例：
 
@@ -115,6 +117,7 @@ skills/
 ├── 08-scorecard.md
 ├── 09-validation-plan.md
 ├── 10-monitoring/
+├── 11-key-points.md
 └── sources.md
 ```
 
