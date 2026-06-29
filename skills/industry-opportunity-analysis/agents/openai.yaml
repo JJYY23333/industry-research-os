@@ -1,0 +1,4 @@
+interface:
+  display_name: "Industry Opportunity Analysis"
+  short_description: "Prioritize industry opportunities with validation plans"
+  default_prompt: "Use $industry-opportunity-analysis to analyze a target industry and produce ranked opportunity cards with validation tests."

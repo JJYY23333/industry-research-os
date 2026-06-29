@@ -1,124 +1,165 @@
-# Industry Research OS
+# Industry Research OS Skills
 
-Industry Research OS is a Codex skill for structured industry analysis.
+一组用于行业研究与机会分析的 Codex skills。目标不是让 Codex 只写一篇一次性报告，而是把行业信息沉淀成可持续更新、可检索、可复用的 Markdown 研究系统。
 
-It helps Codex turn market research into a durable Markdown knowledge base instead of a one-off report. Use it for industry analysis, sector research, player mapping, business model analysis, supply chain analysis, unit economics, opportunity discovery, and recurring industry intelligence reports.
+## 包含的 Skills
 
-## 中文说明
+### 1. Industry Research OS
 
-Industry Research OS 是一个用于结构化产业分析的 Codex skill。
+`industry-research-os` 用于结构化行业研究。
 
-它的目标不是让 Codex 只输出一篇一次性行业报告，而是把产业研究沉淀成一套可以持续更新、检索和复用的 Markdown 知识库。适合用于产业分析、行业分析、陌生市场研究、玩家分析、商业模式拆解、供应链分析、单位经济模型分析、机会发现，以及周期性的行业情报周报。
+适合场景：
 
-### 它会生成什么
+- 陌生行业快速入门
+- 产业链和玩家地图梳理
+- 商业模式、供应链、单位经济模型分析
+- 行业趋势、用户场景、机会清单整理
+- 生成 Obsidian 可用的行业研究知识库
+- 周期性行业情报周报
 
-这个 skill 会引导 Codex 创建一套适合导入 Obsidian 的行业研究目录：
+使用示例：
 
 ```text
-<industry-name>/
-├── README.md
-├── 00-overview.md
-├── 01-field-rules.md
-├── 02-players/
-├── 03-business-models/
-├── 04-supply-chain/
-├── 05-unit-economics/
-├── 06-users-and-scenarios/
-├── 07-trends/
-├── 08-opportunities/
-├── 09-weekly-intelligence/
-└── sources.md
+Use $industry-research-os to analyze the internet grocery industry in China and create a Markdown research database.
 ```
 
-### 安装
+```text
+帮我做新能源汽车产业分析，并沉淀成 Obsidian 可用的行业研究库。
+```
 
-把 skill 文件夹复制到 Codex 的 skills 目录：
+### 2. Industry Opportunity Analysis
+
+`industry-opportunity-analysis` 用于行业机会分析和验证优先级排序。
+
+它会把一个目标行业拆成机会管道：先梳理行业地图、用户痛点、竞品缺口、产品和内容需求，再用评分模型筛出最值得验证的机会，并输出 7/14/30 天验证计划。
+
+适合场景：
+
+- 找产品机会
+- 找内容机会
+- 找细分人群切入点
+- 拆解竞品弱点
+- 判断一个行业是否值得进入
+- 对多个机会做评分和优先级排序
+- 输出机会卡片、验证实验和行动路线图
+
+使用示例：
+
+```text
+Use $industry-opportunity-analysis to analyze the US pet supplements industry and produce ranked opportunity cards with validation tests.
+```
+
+```text
+用 $industry-opportunity-analysis 分析美国宠物营养品行业，找出适合小团队验证的前 10 个机会。
+```
+
+```text
+帮我分析跨境电商 SaaS 的行业机会，输出机会评分表、Top 机会卡片和 30 天验证计划。
+```
+
+## 安装
+
+把需要的 skill 复制到 Codex skills 目录：
 
 ```bash
 cp -R skills/industry-research-os ~/.codex/skills/
+cp -R skills/industry-opportunity-analysis ~/.codex/skills/
 ```
 
 然后新开一个 Codex 会话，或刷新 skill 列表。
 
-### 使用示例
+## 目录结构
 
 ```text
-Use $industry-research-os to analyze the internet grocery industry in China and create a Markdown research database.
+skills/
+├── industry-research-os/
+│   ├── SKILL.md
+│   ├── agents/
+│   ├── references/
+│   └── scripts/
+└── industry-opportunity-analysis/
+    ├── SKILL.md
+    ├── agents/
+    └── references/
 ```
 
-```text
-帮我做新能源汽车产业分析，并沉淀成 Obsidian 可用的行业研究库。
-```
+## Industry Opportunity Analysis 输出内容
+
+这个 skill 的核心交付物包括：
+
+- 行业机会分析摘要
+- 用户痛点地图
+- 竞品缺口地图
+- 产品和 offer 地图
+- 关键词和内容机会地图
+- 商业模式机会地图
+- Top 机会卡片
+- 机会评分表
+- No-go / 低优先级机会清单
+- 7/14/30 天验证计划
+- 周期性监控模板
+
+标准工作区结构：
 
 ```text
-用产业分析框架研究跨境电商 SaaS，输出玩家、商业模式、供应链、单位经济模型和机会清单。
-```
-
-### Skill 内容
-
-- `skills/industry-research-os/SKILL.md`：触发描述和主工作流。
-- `skills/industry-research-os/references/field-rules.md`：行业研究文档的固定字段规则。
-- `skills/industry-research-os/references/output-contracts.md`：行业研究库的目录结构约定。
-- `skills/industry-research-os/references/research-quality-rules.md`：来源等级、事实/判断/假设标注规则。
-- `skills/industry-research-os/scripts/init_industry_workspace.py`：初始化行业研究库。
-- `skills/industry-research-os/scripts/validate_industry_workspace.py`：校验行业研究库结构。
-- `skills/industry-research-os/assets/templates/`：Markdown 模板。
-
-## What It Produces
-
-The skill guides Codex to create an Obsidian-friendly research workspace:
-
-```text
-<industry-name>/
+<industry-opportunity-os>/
 ├── README.md
-├── 00-overview.md
-├── 01-field-rules.md
-├── 02-players/
-├── 03-business-models/
-├── 04-supply-chain/
-├── 05-unit-economics/
-├── 06-users-and-scenarios/
-├── 07-trends/
-├── 08-opportunities/
-├── 09-weekly-intelligence/
+├── 00-scope.md
+├── 01-industry-overview.md
+├── 02-user-pain-points/
+├── 03-competitors/
+├── 04-products-offers/
+├── 05-keywords-content/
+├── 06-business-models/
+├── 07-opportunity-cards/
+├── 08-scorecard.md
+├── 09-validation-plan.md
+├── 10-monitoring/
 └── sources.md
 ```
 
-## Install
+## 机会评分模型
 
-Copy the skill folder into your Codex skills directory:
+`industry-opportunity-analysis` 会从以下维度给机会打分：
 
-```bash
-cp -R skills/industry-research-os ~/.codex/skills/
-```
+- 痛点强度
+- 需求证据
+- 竞争缺口
+- 渠道可达性
+- 变现能力
+- 执行匹配度
+- 验证速度
+- 趋势支撑
 
-Then start a new Codex session or refresh your skill list.
+它不会只因为市场规模大就推荐机会。一个机会必须同时说明：
 
-## Usage
+- 谁是用户和买单方
+- 解决什么高频或高价值痛点
+- 为什么现有方案不够好
+- 可以通过什么渠道触达
+- 如何变现
+- 最便宜的验证实验是什么
+- 成功标准和放弃条件是什么
 
-Example prompts:
+## 推荐使用方式
+
+如果你只是想理解一个行业，先用：
 
 ```text
-Use $industry-research-os to analyze the internet grocery industry in China and create a Markdown research database.
+Use $industry-research-os ...
 ```
+
+如果你已经有一个行业方向，想判断哪里值得切入，直接用：
 
 ```text
-帮我做新能源汽车产业分析，并沉淀成 Obsidian 可用的行业研究库。
+Use $industry-opportunity-analysis ...
 ```
+
+如果你要做完整研究，可以组合使用：
 
 ```text
-用产业分析框架研究跨境电商 SaaS，输出玩家、商业模式、供应链、单位经济模型和机会清单。
+先用 $industry-research-os 建立行业研究库，再用 $industry-opportunity-analysis 基于研究库输出机会评分和验证计划。
 ```
-
-## Skill Contents
-
-- `skills/industry-research-os/SKILL.md`: trigger description and main workflow.
-- `skills/industry-research-os/references/field-rules.md`: stable field rules for research documents.
-- `skills/industry-research-os/references/output-contracts.md`: expected workspace structure.
-- `skills/industry-research-os/references/research-quality-rules.md`: source grading and claim discipline.
-- `skills/industry-research-os/scripts/init_industry_workspace.py`: initialize a research workspace.
-- `skills/industry-research-os/scripts/validate_industry_workspace.py`: validate a research workspace.
-- `skills/industry-research-os/assets/templates/`: Markdown templates.
 
 ## License
 
